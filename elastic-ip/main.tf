@@ -27,7 +27,7 @@ provider "aws" {
 # Data — look up the existing EC2 instance
 ###############################################################################
 
-data "aws_instance" "this" {
+data "aws_instance" "rai_main" {
   instance_id = var.instance_id
 }
 
@@ -35,7 +35,7 @@ data "aws_instance" "this" {
 # Elastic IP
 ###############################################################################
 
-resource "aws_eip" "this" {
+resource "aws_eip" "rai_main" {
   domain = "vpc"
 
   tags = {
@@ -48,7 +48,7 @@ resource "aws_eip" "this" {
 # Associate EIP with the EC2 instance
 ###############################################################################
 
-resource "aws_eip_association" "this" {
-  instance_id   = data.aws_instance.this.id
-  allocation_id = aws_eip.this.id
+resource "aws_eip_association" "rai_main" {
+  instance_id   = data.aws_instance.rai_main.id
+  allocation_id = aws_eip.rai_main.id
 }
