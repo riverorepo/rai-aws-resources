@@ -1,0 +1,10 @@
+# Terraform state — contains sensitive data, do not commit
+**/.terraform/
+**/.terraform.lock.hcl
+**/terraform.tfstate
+**/terraform.tfstate.backup
+**/terraform.tfvars
+**/*.tfvars
+
+# OS
+.DS_Store
